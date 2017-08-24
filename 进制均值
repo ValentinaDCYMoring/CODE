@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+//输入一个数A，输出它的从2到A-1进制的各个位数之和的均值
+//eg：输入5   输出   7/3
+
+int hexSum(int n, int a)
+{
+	int sum = 0;
+	while (n)
+	{
+		sum = sum + (n%a);
+		n = n / a;
+	}
+	return sum;
+}
+int main()
+{
+	int A=3;
+	int sum = 0;
+	for (size_t i = 2; i <= A - 1; i++)
+	{
+			sum += hexSum(A, i);
+	}
+
+	int r = sum / (A - 2);
+	cout << sum << '/' << (A - 2) << endl;
+	system("pause");
+	return 0;
+}
